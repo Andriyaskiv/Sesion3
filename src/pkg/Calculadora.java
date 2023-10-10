@@ -4,7 +4,7 @@ public class Calculadora {
 	
 	public class Matematicas { 
 		 public static int suma (int a, int b) { 
-		 return 5; 
+		 return a+b; 
 		 } 
 		 public static int resta (int a,int b) {
 			 
