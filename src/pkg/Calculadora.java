@@ -14,7 +14,10 @@ public class Calculadora {
 			 return a*b;
 		 }
 		 public static int divide (int a,int b) {
+			 if(j!=0) 
 			 return a/b;
+			 else
+		     return -1;
 		 }
 		} 
 	
