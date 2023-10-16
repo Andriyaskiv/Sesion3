@@ -12,9 +12,13 @@ import pkg.Cuenta;
 
 class CuentaTest {
 	private static Cuenta aux;
+	private static Cuenta cuentaa;
+	private static Cuenta cuentab;
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		aux = new Cuenta("12345","Manuel",0);
+		cuentaa= new Cuenta("12345", "Juan", 50);
+		cuentab= new Cuenta("67890", "Ana", 0);
 	}
 
 	@AfterAll
@@ -40,7 +44,22 @@ class CuentaTest {
 		aux.Ingresar(1000);
 		assertEquals(aux.getSaldo(),1000);
 	}
-			
-
+	@Test
+	void Test0014() {
+		assertEquals(cuentaa.getSaldo(), 50);
+		assertEquals(cuentab.getSaldo(), 0);
+		
+		cuentaa.Retirar(200);
+		cuentab.Retirar(350);
+		cuentaa.Ingresar(100);
+		cuentab.Retirar(200);
+		cuentab.Retirar(150);
+		cuentaa.Retirar(200);
+		cuentab.Ingresar(50);
+		cuentab.Retirar(100);
+		
+		assertEquals(cuentaa.getSaldo(), -250);
+		assertEquals(cuentab.getSaldo(), -450);
+	}
 
 }
